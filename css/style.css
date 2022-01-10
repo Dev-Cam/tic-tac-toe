@@ -1,0 +1,71 @@
+body {
+    background-color: lightblue;
+    display: grid;
+    justify-content: center;
+    height: 100vh;
+    overflow: auto;
+}
+.wrapper {
+    max-width: 800px;
+    display: grid;
+    margin-bottom: 100px;
+    padding: 30px;
+    background-color: lightseagreen;
+    border-radius: 20px;
+    border: 1px solid red;
+    justify-content: center;
+}
+
+h1 {
+    text-align: center;
+    font-size: 50px;
+    margin-top: 0;
+}
+
+.grid-container {
+    margin: 0;
+    padding: 20px;
+    background-color: blue;
+    display: grid;
+    grid-template-columns: repeat(3, 150px); /* creates 3 colunms with 200px width  */
+    grid-template-rows: repeat(3, 150px);
+    justify-content: center;
+    border-radius: 20px;
+    border: 1px solid red;
+}
+
+.box {
+    border: 3px solid black;
+    background-color: white;
+    display: grid;
+    justify-content: center;
+    align-content: center;
+}
+
+img {
+    position: relative;
+    width: 100px;
+    height: 100px;
+}
+
+.setup {
+    display: grid;
+    justify-content: center;
+    background-color: white;
+    border-radius: 10px;
+}
+
+.icons {
+    margin: auto;
+}
+.icon-select {
+    width: 50px;
+    height: 50px;
+    background-color: whitesmoke;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+
+
+
