@@ -1,25 +1,55 @@
+* {
+    margin: 0;
+    padding: 0;
+    border-style: none;
+
+}
 body {
     background-color: lightblue;
-    display: grid;
-    justify-content: center;
     height: 100vh;
-    overflow: auto;
+    display: flex;
+    justify-content: center;
+    align-items:center;
 }
 .wrapper {
-    max-width: 800px;
-    display: grid;
-    margin-bottom: 100px;
+    display: flex;
+    max-width: 80%;
     padding: 30px;
+    max-height: 560px;
     background-color: lightseagreen;
     border-radius: 20px;
     border: 1px solid red;
+    align-items: center;
+    flex-direction: column;
+    
+}
+
+.colunm {
+    display: flex;
+    flex-direction: row;
+}
+
+.colunm1 {
+    margin: 20px;
+
+}
+
+#colunm2 {
+    margin: 20px;
+    display: flex;
+    flex-direction: column;
     justify-content: center;
+    align-items: center;
+}
+
+#colunm2 h2 {
+    margin-bottom: 20px;
 }
 
 h1 {
     text-align: center;
     font-size: 50px;
-    margin-top: 0;
+    margin: 10px;
 }
 
 .grid-container {
@@ -27,7 +57,7 @@ h1 {
     padding: 20px;
     background-color: blue;
     display: grid;
-    grid-template-columns: repeat(3, 150px); /* creates 3 colunms with 200px width  */
+    grid-template-columns: repeat(3, 150px); /* creates 3 colunms with 100px width  */
     grid-template-rows: repeat(3, 150px);
     justify-content: center;
     border-radius: 20px;
@@ -42,21 +72,70 @@ h1 {
     align-content: center;
 }
 
+.box:hover {
+    background-color: wheat;
+}
+
 img {
     position: relative;
     width: 100px;
     height: 100px;
+    
+}
+
+#winPopup {
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.5);
+    width: 100%;
+    height: 100%;
+    display: grid;
+    visibility: hidden;
+    justify-content: center;
+    align-content: center;
+    z-index: 1;
+}
+
+#winPlayer {
+    display: flex;
+    background-color: black;
+    color: white;
+    border-radius: 10px;
+    padding: 10px 30px;;
+    font-size: 50px;
+    margin-bottom: 20px
+    
+
+}
+
+#exitModal {
+    margin: auto;
+    padding: 10px 20px;
+    font-size: 20px;
+    background-color: turquoise;
+    border-radius: 10px;
+    max-width: 30%;
+
+}
+
+#exitModal:hover {
+    background-color:yellowgreen;
+    cursor: pointer;
 }
 
 .setup {
-    display: grid;
+    display: flex;
     justify-content: center;
-    background-color: white;
-    border-radius: 10px;
+    flex-direction: column;
 }
 
 .icons {
     margin: auto;
+    background-color: rgba(255, 255, 255, 0.5);
+    border-radius: 10px;
+    padding: 20px;
+}
+.icons img {
+    margin: 0 10px;
 }
 .icon-select {
     width: 50px;
@@ -64,6 +143,10 @@ img {
     background-color: whitesmoke;
     border-radius: 10px;
     padding: 10px;
+}
+
+.scores {
+    margin-top: 20px;
 }
 
 

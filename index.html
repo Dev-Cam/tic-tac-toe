@@ -12,32 +12,50 @@
 
 </head>
 <body>
+    <div id='winPopup'>
+        <p id='winPlayer'></p>
+        <span id="exitModal">Close</span>
+    </div>
     <div class="wrapper">
         <h1>Tic-Tac-Toe</h1>
-        <div class="grid-container">
-            <div id="winPopup"></div>
-            <div class="box top-border border-left" id="top1"></div>
-            <div class="box top-border" id="top2"></div>
-            <div class="box top-border border-right" id="top3"></div>
-            <div class="box border-left" id="middle1"></div>
-            <div class="box" id="middle2"></div>
-            <div class="box border-right" id="middle3"></div>
-            <div class="box bottom-border border-left" id="bottom1"></div>
-            <div class="box bottom-border" id="bottom2"></div>
-            <div class="box bottom-border border-right" id="bottom3"></div>
-
-            
-        </div>
-        <h2>Click the square where you want to move</h2>
-        <div class="setup"> <!-- make this dissapear later-->
-            <h2>Choose an icon <span>(plugin player name here)</span></h2>
-                <div class="icons">
-                    <img class="icon-select" src="css/images/dry-clean.png" alt="">
-                    <img class="icon-select" src="css/images/close.png" alt="">
-
+        <div class="colunm">
+            <div id="colunm1">
+               
+                <div class="grid-container">
+                    <div class="box top-border border-left" id="top1"></div>
+                    <div class="box top-border" id="top2"></div>
+                    <div class="box top-border border-right" id="top3"></div>
+                    <div class="box border-left" id="middle1"></div>
+                    <div class="box" id="middle2"></div>
+                    <div class="box border-right" id="middle3"></div>
+                    <div class="box bottom-border border-left" id="bottom1"></div>
+                    <div class="box bottom-border" id="bottom2"></div>
+                    <div class="box bottom-border border-right" id="bottom3"></div>
                 </div>
+            </div>
+            <div id="colunm2">
+                <div class="setup"> 
+                    <h2>Choose an icon <span>(plugin player name here)</span></h2>
+                    <div class="icons">
+                        <img class="icon-select" src="css/images/dry-clean.png" alt="">
+                        <img class="icon-select" src="css/images/close.png" alt="">
 
-        </div>
+                    </div>
+                </div>
+                <div class="scores">
+                    <h2>Games Won:</h2>
+                    <div id="player1">
+                        <h3>Player 1</h3>
+                        <p id="p1Score">0</p>
+                    </div>
+                    <div id="player2">
+                        <h3>Player 2</h3>
+                        <p id="p2Score">0</p>
+
+                    </div>
+                </div>
+           </div>
+        </div> 
     </div>
     
 </body>
