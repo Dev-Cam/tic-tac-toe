@@ -27,7 +27,7 @@ const checkForWin = function(playerName, playerArr){
                     player1WinMoves ++;
                 } // end of first if
             }  //end forloop
-            if( player1WinMoves >= 3){
+            if( player1WinMoves === 3){
                 $player1Score ++;
                 $playerOneWins.html($player1Score);
                 $("#winPlayer").html("Player 1 Wins!");
@@ -43,7 +43,7 @@ const checkForWin = function(playerName, playerArr){
                 } // end of first if
 
             } //end of forloop
-            if( player2WinMoves >= 3){
+            if( player2WinMoves === 3){
                 $player2Score ++
                 $playerTwoWins.html($player2Score);
                 $("#winPlayer").html("Player 2 Wins!");
@@ -75,6 +75,10 @@ $(function() {
                 $(this).append( $playerOneMove );
                 $player1Array.push(event.target.id)
                 checkForWin("player1" ,$player1Array);
+                if($player1Array.length === 5){
+                    $("#winPlayer").html("The game is a Draw!");
+                    $("#winPopup").css("visibility", "visible")
+                }
                 $playerTurn++
             }    
         } else {
