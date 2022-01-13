@@ -56,10 +56,30 @@ const checkForWin = function(playerName, playerArr){
 }; //end of checkForWin
 
 $(function() {
+
+    const $cross = $("<div><img src='css/images/close.png')></div>");
     $playerOneWins = $("#p1Score");
     $playerTwoWins = $("#p2Score");
     const $closeButton = $("#exitModal")
     const $gameBox = $(".box");
+    const $icons = $(".icons");
+    let $p2icon;
+    let $p1icon;
+
+
+    $(".icons img").on("click", function(){
+            if($playerTurn === 1){
+                console.log($(this));
+                $p1icon = $(this).clone()
+                $p1icon.removeClass("icon-select")
+                console.log($p1icon);
+                $playerTurn ++;
+            } else {
+                $p2icon= $(this).clone();
+                $p2icon.removeClass("icon-select")
+                $playerTurn ++;
+            }
+    });
 
     $closeButton.on("click", function(){
         $("#winPopup").css("visibility", "hidden");
@@ -72,8 +92,9 @@ $(function() {
     
     $gameBox.on("click", function(event){
         if($playerTurn % 2 === 1){
-            if($(this).has("div").length === 0){
-            const $playerOneMove =$("<div><img src='css/images/close.png')></div>"); 
+            if($(this).has("img").length === 0){
+            const $playerOneMove = $p1icon.clone();
+            // const $playerOneMove =$("<div><img src='css/images/close.png')></div>"); 
                 $(this).append( $playerOneMove );
                 $player1Array.push(event.target.id)
                 const foundWinner = checkForWin("player1" ,$player1Array);
@@ -85,7 +106,7 @@ $(function() {
             }    
         } else {
             if($(this).has("div").length === 0){
-            const $playerTwoMove =$("<div><img src='css/images/dry-clean.png')></div>"); 
+            const $playerTwoMove = $p2icon.clone();
                 $(this).append( $playerTwoMove );
                 $player2Array.push(event.target.id)
                 checkForWin("player2", $player2Array);

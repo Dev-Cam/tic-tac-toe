@@ -63,10 +63,14 @@ h1 {
     margin: 10px;
 }
 
+h2 {
+    text-align: center;
+}
+
 .grid-container {
     margin: auto;
     display: grid;
-    grid-template-columns: repeat(3, 150px); /* creates 3 colunms with 100px width  */
+    grid-template-columns: repeat(3, 150px); 
     grid-template-rows: repeat(3, 150px);
     justify-content: center;
     border-radius: 20px;
@@ -90,6 +94,13 @@ img {
     width: 100px;
     height: 100px;
     
+}
+
+#player1 {
+    border-bottom: 1px solid blue;
+}
+#player2 {
+    border-bottom: 1px solid red;
 }
 
 #winPopup {
@@ -132,32 +143,12 @@ img {
     cursor: pointer;
 }
 
-.done {
-    margin: auto;
-    padding: 5px 10px;
-    font-size: 20px;
-    background-color: whitesmoke;
-    border-radius: 10px;
-    max-width: 30%;
-    margin-bottom: 10px;
-    border: 1px solid black;
-    box-shadow: rgba(0, 0, 0, 0.4) 0px 5px 10px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
-
-}
-
-.done:hover {
-    
-    box-shadow: #285943 0px 5px 10px, #285943 0px 7px 13px -3px, rgba(0, 0, 0, 0.4) 0px -3px 0px inset;
-    cursor: pointer;
-}
 
 .setup {
     display: flex;
     justify-content: center;
     flex-direction: column;
     flex-wrap: wrap;
-    
-
 }
 
 #setupHeading {
@@ -180,6 +171,11 @@ img {
 .icons img {
     margin: 10px 10px;
 }
+
+.icons img:hover {
+    background-color: burlywood;
+}
+
 .icon-select {
     width: 40px;
     height: 40px;
@@ -256,13 +252,17 @@ img {
         grid-template-columns: repeat(3, 85px); /* creates 3 colunms with 100px width  */
         grid-template-rows: repeat(3, 85px);
     }
+
+    img {
+        width: 65px;
+        height: 65px;
+        
+    }
 }
 
 @media(max-width: 640px) {
-  
-   
 
-    h2, h3 {
+    .scores, .setup {
         font-size: 15px;
     }
     .row {
@@ -284,8 +284,8 @@ img {
     }
 
     img {
-        width: 75px;
-        height: 75px;
+        width: 50px;
+        height: 50px;
         
     }
 
