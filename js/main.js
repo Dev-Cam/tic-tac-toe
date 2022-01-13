@@ -69,8 +69,11 @@ $(function() {
     let $p1icon;
     let iconSelect = 0;
 
+    $("#name").html("Player 1"); 
+
     $(".icons img").on("click", function(){ //saves the selected icon into a var to use in box click function
                 if(iconSelect === 0){
+                    $("#name").html("Player 2"); 
                     $(this).css("border", "2px solid blue");
                     $p1icon = $(this).clone();
                     $p1icon.removeClass("icon-select");
@@ -84,6 +87,7 @@ $(function() {
                     $p2icon.removeClass("icon-select");
                     $p2icon.css("border", "none");
                     iconSelect ++;
+                    $("#name").html("Lets get ready to RUMBLE!!!"); 
                 }
                 else if (iconSelect === 2) {
                     $(this).css("pointer", "none")
