@@ -6,7 +6,6 @@ let $player2Array = [];
 let $player1Score = 0;
 let $player2Score = 0;
 
-
 const winConditions = [
     ["top1", "top2", "top3"],
     ["top1", "middle2", "bottom3"],
@@ -32,6 +31,7 @@ const checkForWin = function(playerName, playerArr){
                 $playerOneWins.html($player1Score);
                 $("#winPlayer").html("Player 1 Wins!");
                 $("#winPopup").css("visibility", "visible");
+                return true;
             } //end of second if checking if winVal is 3
         } //end of winConditions for of  
     } else if (playerName === "player2"){
@@ -48,9 +48,11 @@ const checkForWin = function(playerName, playerArr){
                 $playerTwoWins.html($player2Score);
                 $("#winPlayer").html("Player 2 Wins!");
                 $("#winPopup").css("visibility", "visible")
+                return true;
             } //end of second if checking if winVal is 
         } //end of winConditions for of  
     }// end else if
+    return false;
 }; //end of checkForWin
 
 $(function() {
@@ -74,8 +76,8 @@ $(function() {
             const $playerOneMove =$("<div><img src='css/images/close.png')></div>"); 
                 $(this).append( $playerOneMove );
                 $player1Array.push(event.target.id)
-                checkForWin("player1" ,$player1Array);
-                if($player1Array.length === 5){
+                const foundWinner = checkForWin("player1" ,$player1Array);
+                if($player1Array.length === 5 && !foundWinner){
                     $("#winPlayer").html("The game is a Draw!");
                     $("#winPopup").css("visibility", "visible")
                 }

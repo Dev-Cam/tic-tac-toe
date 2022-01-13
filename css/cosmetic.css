@@ -14,3 +14,19 @@
 .border-right {
     border-right: 6px solid black;
 }
+
+#top1 {
+    border-top-left-radius: 10px;
+}
+
+#top3 {
+    border-top-right-radius: 10px;
+}
+
+#bottom1 {
+    border-bottom-left-radius: 10px;
+}
+
+#bottom3 {
+    border-bottom-right-radius: 10px;
+}
