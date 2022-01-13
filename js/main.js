@@ -6,6 +6,7 @@ let $player2Array = [];
 let $player1Score = 0;
 let $player2Score = 0;
 
+
 const winConditions = [
     ["top1", "top2", "top3"],
     ["top1", "middle2", "bottom3"],
@@ -61,25 +62,35 @@ $(function() {
     $playerOneWins = $("#p1Score");
     $playerTwoWins = $("#p2Score");
     const $closeButton = $("#exitModal")
+    const $resetButton = $("#resetScore")
     const $gameBox = $(".box");
     const $icons = $(".icons");
     let $p2icon;
     let $p1icon;
+    let iconSelect = 0;
 
-
-    $(".icons img").on("click", function(){
-            if($playerTurn === 1){
-                console.log($(this));
-                $p1icon = $(this).clone()
-                $p1icon.removeClass("icon-select")
-                console.log($p1icon);
-                $playerTurn ++;
-            } else {
-                $p2icon= $(this).clone();
-                $p2icon.removeClass("icon-select")
-                $playerTurn ++;
-            }
+    $(".icons img").on("click", function(){ //saves the selected icon into a var to use in box click function
+                if(iconSelect === 0){
+                    $(this).css("border", "2px solid blue");
+                    $p1icon = $(this).clone();
+                    $p1icon.removeClass("icon-select");
+                    $p1icon.css("border", "none");
+                    iconSelect ++;
+                    $(this).css("pointer", "none");
+                } 
+                else if(iconSelect === 1) {
+                    $(this).css("border", "2px solid red");
+                    $p2icon = $(this).clone();
+                    $p2icon.removeClass("icon-select");
+                    $p2icon.css("border", "none");
+                    iconSelect ++;
+                }
+                else if (iconSelect === 2) {
+                    $(this).css("pointer", "none")
+                }
     });
+
+    
 
     $closeButton.on("click", function(){
         $("#winPopup").css("visibility", "hidden");
@@ -87,32 +98,45 @@ $(function() {
         $player1Array = [];
         $player2Array = [];
         $playerTurn = 1;
+    })
 
+    $resetButton.on("click", function(){
+        $playerOneWins.html("0");
+        $playerTwoWins.html("0");
+    })
+
+    $("#iconBtnClose").on("click", function(){
+        $("#selectIconBeforePlaying").css("visibility", "hidden");
+        
     })
     
     $gameBox.on("click", function(event){
-        if($playerTurn % 2 === 1){
-            if($(this).has("img").length === 0){
-            const $playerOneMove = $p1icon.clone();
-            // const $playerOneMove =$("<div><img src='css/images/close.png')></div>"); 
-                $(this).append( $playerOneMove );
-                $player1Array.push(event.target.id)
-                const foundWinner = checkForWin("player1" ,$player1Array);
-                if($player1Array.length === 5 && !foundWinner){
-                    $("#winPlayer").html("The game is a Draw!");
-                    $("#winPopup").css("visibility", "visible")
-                }
-                $playerTurn++
-            }    
+        if(iconSelect === 2){
+            if($playerTurn % 2 === 1){
+                if($(this).has("img").length === 0){
+                const $playerOneMove = $p1icon.clone();
+                    $(this).append( $playerOneMove );
+                    $player1Array.push(event.target.id)
+                    const foundWinner = checkForWin("player1" ,$player1Array);
+                    if($player1Array.length === 5 && !foundWinner){
+                        $("#winPlayer").html("The game is a Draw!");
+                        $("#winPopup").css("visibility", "visible")
+                    }
+                    $playerTurn++
+                }    
+            } else {
+                if($(this).has("img").length === 0){
+                const $playerTwoMove = $p2icon.clone();
+                    $(this).append( $playerTwoMove );
+                    $player2Array.push(event.target.id)
+                    checkForWin("player2", $player2Array);
+                    $playerTurn++
+                } 
+            } // end else
         } else {
-            if($(this).has("div").length === 0){
-            const $playerTwoMove = $p2icon.clone();
-                $(this).append( $playerTwoMove );
-                $player2Array.push(event.target.id)
-                checkForWin("player2", $player2Array);
-                $playerTurn++
-            } 
-        } // end else
+                $("#selectIconBeforePlaying").css("visibility", "visible");
+        }
+        
     }); //end gamebox onClick
 })
 
