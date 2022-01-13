@@ -57,22 +57,17 @@ const checkForWin = function(playerName, playerArr){
 }; //end of checkForWin
 
 $(function() {
-
-    const $cross = $("<div><img src='css/images/close.png')></div>");
+    $("#name").html("Player 1"); 
     $playerOneWins = $("#p1Score");
     $playerTwoWins = $("#p2Score");
-    const $closeButton = $("#exitModal")
-    const $resetButton = $("#resetScore")
     const $gameBox = $(".box");
-    const $icons = $(".icons");
     let $p2icon;
     let $p1icon;
     let iconSelect = 0;
 
-    $("#name").html("Player 1"); 
 
     $(".icons img").on("click", function(){ //saves the selected icon into a var to use in box click function
-                if(iconSelect === 0){
+                if(iconSelect === 0){ 
                     $("#name").html("Player 2"); 
                     $(this).css("border", "2px solid blue");
                     $p1icon = $(this).clone();
@@ -96,15 +91,15 @@ $(function() {
 
     
 
-    $closeButton.on("click", function(){
+    $("#exitModal").on("click", function(){
         $("#winPopup").css("visibility", "hidden");
-        $gameBox.empty();
+        $(".box").empty();
         $player1Array = [];
         $player2Array = [];
         $playerTurn = 1;
     })
 
-    $resetButton.on("click", function(){
+    $("#resetScore").on("click", function(){
         $playerOneWins.html("0");
         $playerTwoWins.html("0");
     })
@@ -114,7 +109,7 @@ $(function() {
         
     })
     
-    $gameBox.on("click", function(event){
+    $(".box").on("click", function(event){
         if(iconSelect === 2){
             if($playerTurn % 2 === 1){
                 if($(this).has("img").length === 0){

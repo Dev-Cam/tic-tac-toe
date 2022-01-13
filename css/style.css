@@ -5,24 +5,33 @@
 }
 
 body {
+    display: flex;
     background-color: #F5F5DC;
-    min-height: 100vh;
-    justify-content: center;
-    align-items:center;
-    font-family: 'Shadows Into Light', cursive;
+    height: 100vh;
+    flex-direction: column;
+    align-items: center;
+    align-content: center;
+    justify-content: center;;
+    font-family: 'Shadows Into Light', "sans serrif";
+    overflow: hidden;
+}
+
+.game {
+    margin-top: -50px
 }
 
 .wrapper {
     display: flex;
     margin: auto;
-    width: 100%;
     max-width: 860px;
     height: 590px;
     flex-direction: row;
     background-color: #285943;
     border-radius: 20px;
+    align-content: center;;
     align-items: center;
-    box-shadow: rgba(0, 0, 0, 0.4) 0px 5px 10px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+    box-shadow: rgba(0, 0, 0, 0.4) 0px 10px 15px, rgba(0, 0, 0, 0.3) 0px 7px 13px, rgba(0, 0, 0, 0.2) 0px -4px 0px inset;
+    
 }
 
 .row {
@@ -41,7 +50,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+    box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
     border-radius: 10px;
     width: 250px;
     height: 50%;
@@ -51,12 +60,12 @@ body {
 h1 {
     text-align: center;
     font-size: 50px;
-    margin-top: 5px;
+    margin-bottom: 20px;
 }
 
 h2 {
     text-align: center;
-    margin: 5ps 0;
+    margin: 5px 0;
 }
 
 .grid-container {
@@ -121,7 +130,7 @@ img {
 
 .modalText {
     display: flex;
-    background-color: black;
+    background-color:  rgba(0, 0, 0, 0.6);;
     color: white;
     border-radius: 10px;
     padding: 10px 30px;;
@@ -232,9 +241,6 @@ img {
         width: 75px;
         height: 75px; 
     }
-    .done {
-        font-size: 14px;
-    }
     .icon-select {
         width: 20px;
         height: 20px;
@@ -247,7 +253,7 @@ img {
 @media (max-width: 720px) {
     
     .grid-container {
-        grid-template-columns: repeat(3, 85px); /* creates 3 colunms with 100px width  */
+        grid-template-columns: repeat(3, 85px); 
         grid-template-rows: repeat(3, 85px);
     }
     img {
@@ -270,11 +276,8 @@ img {
     #colunm2 {
         margin-bottom: 0;
     }
-    .done {
-        font-size: 10px;
-    }
     .grid-container {
-        grid-template-columns: repeat(3, 75px); /* creates 3 colunms with 100px width  */
+        grid-template-columns: repeat(3, 75px); 
         grid-template-rows: repeat(3, 75px);
     }
     img {
