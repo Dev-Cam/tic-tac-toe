@@ -60,7 +60,6 @@ $(function() {
     $("#name").html("Player 1"); 
     $playerOneWins = $("#p1Score");
     $playerTwoWins = $("#p2Score");
-    const $gameBox = $(".box");
     let $p2icon;
     let $p1icon;
     let iconSelect = 0;
@@ -91,7 +90,7 @@ $(function() {
 
     
 
-    $("#exitModal").on("click", function(){
+    $("#exitModal").on("click", function(){  //turns the modal off and resets all data except the scores
         $("#winPopup").css("visibility", "hidden");
         $(".box").empty();
         $player1Array = [];
@@ -99,7 +98,7 @@ $(function() {
         $playerTurn = 1;
     })
 
-    $("#resetScore").on("click", function(){
+    $("#resetScore").on("click", function(){    //clears the scores 
         $playerOneWins.html("0");
         $playerTwoWins.html("0");
     })
